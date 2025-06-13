@@ -1,11 +1,13 @@
 <script setup>
 import HelloWorld from './components/HelloWorld.vue'
-import HomePage from './pages/HomePage.vue'
+import home-page from './pages/HomePage.vue'
 </script>
 
 <template>
   <div id="app">
-    <HomePage />
+    <base_header />
+    <home-page />
+    <base-footer />
   </div>
 </template>
 
