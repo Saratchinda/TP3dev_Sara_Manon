@@ -1,8 +1,9 @@
 <template>
   <header class="header">
     <div class="left">
-      <i class="fas fa-home"></i>
-      <span>Home</span>
+      <base-button color="primary">
+        <i class="fas fa-home"></i> Home
+      </base-button>
     </div>
     <div class="right">
       <i class="fas fa-user"></i>
@@ -11,10 +12,8 @@
   </header>
 </template>
 
-<script>
-export default {
-  name: 'BaseHeader'
-}
+<script setup>
+import BaseButton from './BaseButton.vue'
 </script>
 
 <style scoped>
@@ -36,6 +35,6 @@ export default {
 }
 
 i {
-  font-size: 1.2em;
+  margin-right: 5px;
 }
 </style>

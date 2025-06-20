@@ -1,6 +1,7 @@
 <template>
   <button
     class="base-btn"
+    :style="buttonStyle"
     :disabled="disabled"
     v-bind="$attrs"
   >
@@ -9,36 +10,43 @@
 </template>
 
 <script setup>
-defineProps({
-  disabled: Boolean
+import { computed } from 'vue'
+
+const props = defineProps({
+  disabled: Boolean,
+  color: {
+    type: String,
+    default: 'primary',
+    validator: (value) => ['primary', 'warn', 'danger'].includes(value)
+  }
 })
+
+const colorPalette = {
+  primary: { bg: '#42b983', hover: '#4ace93', focus: '#47d696' },
+  warn:    { bg: '#ff5722', hover: '#ff7043', focus: '#ff8a65' },
+  danger:  { bg: '#e53935', hover: '#ef5350', focus: '#e57373' }
+}
+
+const styleVars = computed(() => colorPalette[props.color])
+
+const buttonStyle = computed(() => ({
+  backgroundColor: props.disabled ? '#cfd8dc' : styleVars.value.bg,
+  color: props.disabled ? '#777' : 'white',
+  border: 'none',
+  borderRadius: '5px',
+  padding: '0.6em 1.2em',
+  fontWeight: 'bold',
+  cursor: props.disabled ? 'not-allowed' : 'pointer',
+  transition: 'all 0.3s ease'
+}))
 </script>
 
 <style scoped>
-.base-btn {
-  background-color: #42b983;
-  color: white;
-  padding: 0.6em 1.2em;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  font-weight: bold;
-  transition: background-color 0.3s ease, transform 0.2s ease;
-}
-
-.base-btn:hover {
-  background-color: #369f6b;
+.base-btn:hover:not(:disabled) {
   transform: scale(1.03);
 }
 
-.base-btn:focus {
+.base-btn:focus:not(:disabled) {
   outline: 2px solid #2c7a59;
-}
-
-.base-btn:disabled {
-  background-color: #cfd8dc;
-  color: #777;
-  cursor: not-allowed;
-  transform: none;
 }
 </style>
