@@ -1,15 +1,17 @@
 <template>
-    <div>
-        Contenu de HomePage
-    </div>
+  <div>
+    Contenu de HomePage
+  </div>
 </template>
 
 <script>
 export default {
-    name: 'HomePage'
+  name: 'HomePage'
 }
 </script>
 
 <style scoped>
-/* style */
+div {
+  font-size: 1.1rem;
+}
 </style>

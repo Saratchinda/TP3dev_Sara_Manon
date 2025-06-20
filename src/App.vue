@@ -1,27 +1,33 @@
 <script setup>
-import HelloWorld from './components/HelloWorld.vue'
-import home-page from './pages/HomePage.vue'
+import BaseHeader from './components/BaseHeader.vue'
+import BaseFooter from './components/BaseFooter.vue'
+import HomePage from './pages/HomePage.vue'
 </script>
 
 <template>
   <div id="app">
-    <base_header />
-    <home-page />
+    <base-header />
+    <main>
+      <home-page />
+    </main>
     <base-footer />
   </div>
 </template>
 
 <style scoped>
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
+#app {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
 }
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.vue:hover {
-  filter: drop-shadow(0 0 2em #42b883aa);
+
+main {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
 }
 </style>
