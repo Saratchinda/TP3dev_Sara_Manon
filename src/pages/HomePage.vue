@@ -1,17 +1,23 @@
+<script setup>
+import BaseButton from '../components/BaseButton.vue'
+</script>
+
 <template>
   <div>
-    Contenu de HomePage
+    <p>Here comes the content of the HomePage.</p>
+
+    <base-button style="margin: 1rem;">
+      BaseButton with custom margin
+    </base-button>
+
+    <base-button disabled>
+      BaseButton disabled
+    </base-button>
   </div>
 </template>
 
-<script>
-export default {
-  name: 'HomePage'
-}
-</script>
-
 <style scoped>
 div {
-  font-size: 1.1rem;
+  text-align: center;
 }
 </style>

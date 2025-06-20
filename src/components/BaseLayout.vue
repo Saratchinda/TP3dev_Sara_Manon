@@ -26,6 +26,5 @@ import BaseFooter from './BaseFooter.vue'
   justify-content: center;
   align-items: center;
   padding: 2rem;
-  box-sizing: border-box;
 }
 </style>
